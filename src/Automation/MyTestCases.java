@@ -268,7 +268,52 @@ public void AddItemToThecart1() {
     clickAdd.click();
 }
 
+@Test(priority = 7)
+
+public void AddItemToThecart12() throws InterruptedException {
 	
+	driver.navigate().to(myWebSite);
+	
+	List<WebElement> AllItems = driver.findElements(By.className("prdocutname"));
+	
+	int RandomIndexForTheItem = rand.nextInt(AllItems.size());
+
+	//we got exacly the index 9 that have the size 
+	AllItems.get(9).click();
+	
+	
+	;
+	
+	// logic one 
+	
+	//if(driver.getCurrentUrl().contains("product_id=116")) {
+		//WebElement AvailbleOption = driver.findElement(By.id("option344747"));
+		//AvailbleOption.click();
+	//}
+	
+	
+	// second logic 
+	
+	while(driver.getPageSource().contains("Out of Stock")||driver.getCurrentUrl().contains("product_id=116")) {
+		
+		driver.navigate().back();
+		List<WebElement> AlternativeItems = driver.findElements(By.className("prdocutname"));
+		int AlternativeItem = rand.nextInt(AlternativeItems.size());
+
+		AlternativeItems.get(15).click();
+
+	}
+	
+	
+	
+	
+	WebElement AddToCartButton = driver.findElement(By.cssSelector(".cart"));
+	
+	AddToCartButton.click();
+	
+	System.out.println(driver.getCurrentUrl());
+}
+
 	
 
 	
