@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="5" total="6" passed="1" failed="0" skipped="0">
+<testng-results ignored="7" total="12" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-11T18:57:22 EET" name="Default suite" finished-at="2025-09-11T18:57:30 EET" duration-ms="8210">
+  <suite started-at="2025-09-16T18:20:48 EET" name="Default suite" finished-at="2025-09-16T18:21:15 EET" duration-ms="27109">
     <groups>
     </groups>
-    <test started-at="2025-09-11T18:57:22 EET" name="Default test" finished-at="2025-09-11T18:57:30 EET" duration-ms="8210">
+    <test started-at="2025-09-16T18:20:48 EET" name="Default test" finished-at="2025-09-16T18:21:15 EET" duration-ms="27109">
       <class name="Automation.MyTestCases">
-        <test-method is-config="true" signature="mySetUp()[pri:0, instance:Automation.MyTestCases@293a5f75]" started-at="2025-09-11T18:57:22 EET" name="mySetUp" finished-at="2025-09-11T18:57:26 EET" duration-ms="3605" status="PASS">
+        <test-method is-config="true" signature="mySetUp()[pri:0, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:20:48 EET" name="mySetUp" finished-at="2025-09-16T18:20:51 EET" duration-ms="3325" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetUp -->
-        <test-method signature="AddItemToThecart1()[pri:6, instance:Automation.MyTestCases@293a5f75]" started-at="2025-09-11T18:57:26 EET" name="AddItemToThecart1" finished-at="2025-09-11T18:57:30 EET" duration-ms="4545" status="PASS">
+        <test-method signature="trytoadditem()[pri:8, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:20:51 EET" name="trytoadditem" finished-at="2025-09-16T18:20:55 EET" duration-ms="4292" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddItemToThecart1 -->
-        <test-method is-config="true" signature="AfterMyTest()[pri:0, instance:Automation.MyTestCases@293a5f75]" started-at="2025-09-11T18:57:30 EET" name="AfterMyTest" finished-at="2025-09-11T18:57:30 EET" duration-ms="2" status="PASS">
+        </test-method> <!-- trytoadditem -->
+        <test-method signature="trytoadditem()[pri:8, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:20:55 EET" name="trytoadditem" finished-at="2025-09-16T18:21:00 EET" duration-ms="4216" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trytoadditem -->
+        <test-method signature="trytoadditem()[pri:8, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:21:00 EET" name="trytoadditem" finished-at="2025-09-16T18:21:05 EET" duration-ms="5102" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trytoadditem -->
+        <test-method signature="trytoadditem()[pri:8, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:21:05 EET" name="trytoadditem" finished-at="2025-09-16T18:21:11 EET" duration-ms="6335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trytoadditem -->
+        <test-method signature="trytoadditem()[pri:8, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:21:11 EET" name="trytoadditem" finished-at="2025-09-16T18:21:15 EET" duration-ms="3780" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- trytoadditem -->
+        <test-method is-config="true" signature="AfterMyTest()[pri:0, instance:Automation.MyTestCases@40dff0b7]" started-at="2025-09-16T18:21:15 EET" name="AfterMyTest" finished-at="2025-09-16T18:21:15 EET" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AfterMyTest -->

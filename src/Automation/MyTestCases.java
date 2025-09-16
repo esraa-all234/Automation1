@@ -1,5 +1,10 @@
 package Automation;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +23,9 @@ import org.testng.annotations.Test;
                        //inheritance
 public class MyTestCases extends MyData{
 WebDriver driver = new EdgeDriver();
-	
+Connection con;
+Statement stmt; 
+ResultSet rs;
 	String myWebSite = "https://automationteststore.com/";
 	
 	String SignupPage = "https://automationteststore.com/index.php?rt=account/create";
@@ -26,8 +33,10 @@ WebDriver driver = new EdgeDriver();
 String SignOut="https://automationteststore.com/index.php?rt=account/logout";
 	
 	@BeforeTest
-	public void mySetUp()
+	public void mySetUp() throws SQLException
 	{
+		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/classicmodels","root","asa113355");
+
 		driver.get(myWebSite);
 		driver.manage().window().maximize();
 		
@@ -233,7 +242,7 @@ public void AddItemToThecart() {
 }
 
 
-@Test(priority = 6)
+@Test(priority = 6,enabled=false)
 public void AddItemToThecart1() {
 
     driver.navigate().to(myWebSite);
@@ -268,7 +277,7 @@ public void AddItemToThecart1() {
     clickAdd.click();
 }
 
-@Test(priority = 7)
+@Test(priority = 7 ,enabled=false)
 
 public void AddItemToThecart12() throws InterruptedException {
 	
@@ -278,7 +287,7 @@ public void AddItemToThecart12() throws InterruptedException {
 	
 	int RandomIndexForTheItem = rand.nextInt(AllItems.size());
 
-	//we got exacly the index 9 that have the size 
+	
 	AllItems.get(9).click();
 	
 	
@@ -314,9 +323,53 @@ public void AddItemToThecart12() throws InterruptedException {
 	System.out.println(driver.getCurrentUrl());
 }
 
+@Test(priority = 8,invocationCount = 5)   //make it run the test mor ethan one time 
+
+public void trytoadditem() throws InterruptedException {
+	
+	driver.navigate().to(myWebSite);
+	
+	  
+	for(int i=0;i<10;i++)   // the can make it more than 10
+		
+	{   
+	List<WebElement> items = driver.findElements(By.className("prdocutname"));
+	
+	int RandomIndexForTheItem = rand.nextInt(items.size());
+
+	items.get(RandomIndexForTheItem).click();
+       
+	//the boolean 
+	
+	boolean outofstok= driver.getPageSource().contains("Out of Stock");   //t or f 
+boolean blockedproduct =driver.getCurrentUrl().contains("product_id=116");  //t or f
 	
 
+if(!outofstok&&!blockedproduct)
+{
 	
+	WebElement AddToCartButton = driver.findElement(By.cssSelector(".cart"));
+	
+	AddToCartButton.click();
+	System.out.println( "successfully added: " + driver.getCurrentUrl());
+
+	
+	return;
+}
+
+	
+driver.navigate().back();   //try again 
+
+
+	}
+	
+
+	throw new RuntimeException("you try 10 timesssss");
+}
+
+
+
+
 	@AfterTest
 	public void AfterMyTest() {
 		//close one tab
